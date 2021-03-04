@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="589.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nchlh.ProduitController">
+   <children>
+      <Label layoutX="566.0" layoutY="235.0" text="Prix" />
+      <Label layoutX="565.0" layoutY="156.0" prefHeight="17.0" prefWidth="99.0" text="Stock" />
+      <Label layoutX="566.0" layoutY="112.0" text="Description : " />
+      <Label layoutX="566.0" layoutY="194.0" text="DateFin : " />
+      <TextField fx:id="tnom" layoutX="656.0" layoutY="62.0" prefHeight="31.0" prefWidth="187.0" promptText="*****" />
+      <TextField fx:id="tdescription" layoutX="656.0" layoutY="108.0" prefHeight="25.0" prefWidth="187.0" promptText="--------------" />
+      <TextField fx:id="tstock" layoutX="656.0" layoutY="152.0" prefHeight="25.0" prefWidth="187.0" promptText="--------------" />
+      <TextField fx:id="tdate" layoutX="656.0" layoutY="190.0" prefHeight="25.0" prefWidth="187.0" promptText="YYYY/MM/DD" />
+      <Button fx:id="bAjouter" layoutX="628.0" layoutY="303.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="31.0" prefWidth="149.0" text="Ajouter" />
+      <TableView fx:id="table" layoutX="54.0" layoutY="70.0" onMouseClicked="#SelectItemes" prefHeight="248.0" prefWidth="477.0">
+         <columns>
+            <TableColumn fx:id="col_iduser" minWidth="0.0" prefWidth="0.0" text="iduser" />
+            <TableColumn fx:id="col_nom" prefWidth="97.0" text="Nom" />
+            <TableColumn fx:id="col_description" prefWidth="109.0" text="Description" />
+            <TableColumn fx:id="col_stock" prefWidth="113.0" text="Stock" />
+            <TableColumn fx:id="col_date" prefWidth="79.0" text="DateFin" />
+            <TableColumn fx:id="col_prix" prefWidth="75.0" text="prix" />
+         </columns>
+      </TableView>
+      <Button layoutX="628.0" layoutY="406.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="149.0" text="modifier" />
+      <Button layoutX="628.0" layoutY="357.0" mnemonicParsing="false" onAction="#supp" prefHeight="31.0" prefWidth="149.0" text="supprimer" />
+      <TextField fx:id="recherche1" layoutX="183.0" layoutY="37.0" />
+      <TextField fx:id="tprix" layoutX="656.0" layoutY="231.0" prefHeight="25.0" prefWidth="187.0" promptText="--------------" />
+      <Label layoutX="54.0" layoutY="41.0" prefHeight="17.0" prefWidth="118.0" text="recherche par nom" />
+   </children>
+</AnchorPane>
