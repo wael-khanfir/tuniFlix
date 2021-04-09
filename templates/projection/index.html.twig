@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projection index{% endblock %}
+
+{% block body %}
+    <h1>Projection index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Genre</th>
+                <th>AgeRecommande</th>
+                <th>Duree</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for projection in projections %}
+            <tr>
+                <td>{{ projection.id }}</td>
+                <td>{{ projection.nom }}</td>
+                <td>{{ projection.genre }}</td>
+                <td>{{ projection.ageRecommande }}</td>
+                <td>{{ projection.duree }}</td>
+                <td>{{ projection.image }}</td>
+                <td>
+                    <a href="{{ path('projection_show', {'id': projection.id}) }}">show</a>
+                    <a href="{{ path('projection_edit', {'id': projection.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('projection_new') }}">Create new</a>
+{% endblock %}
