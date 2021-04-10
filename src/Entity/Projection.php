@@ -75,7 +75,7 @@ class Projection
     /**
      * @return string
      */
-    public function getNom(): string
+    public function getNom()
     {
         return $this->nom;
     }
@@ -91,7 +91,7 @@ class Projection
     /**
      * @return string
      */
-    public function getGenre(): string
+    public function getGenre()
     {
         return $this->genre;
     }
@@ -107,7 +107,7 @@ class Projection
     /**
      * @return int
      */
-    public function getAgeRecommande(): int
+    public function getAgeRecommande()
     {
         return $this->ageRecommande;
     }
@@ -123,7 +123,7 @@ class Projection
     /**
      * @return string
      */
-    public function getDuree(): string
+    public function getDuree()
     {
         return $this->duree;
     }
@@ -139,7 +139,7 @@ class Projection
     /**
      * @return string
      */
-    public function getImage(): string
+    public function getImage()
     {
         return $this->image;
     }

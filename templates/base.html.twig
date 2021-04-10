@@ -50,9 +50,9 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="./typography.html">
+                            <a class="nav-link" href="{{ path('projection_index') }}">
                                 <i class="material-icons">library_books</i>
-                                <p>Typography</p>
+                                <p>Gestion des projections</p>
                             </a>
                         </li>
                         <li class="nav-item ">
@@ -192,7 +192,7 @@
                                                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
                                                             <button class="btn">Delete</button>
                                                         </form>
-                                                        <button href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                                                        <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
 
                                                     </td>
                                                 </tr>
@@ -209,6 +209,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+
         {% endblock %}
 
         {% block footer%}

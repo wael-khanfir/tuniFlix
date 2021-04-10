@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Article;
 use App\Entity\Projection;
 use App\Form\ProjectionType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +23,7 @@ class ProjectionController extends AbstractController
             ->getRepository(Projection::class)
             ->findAll();
 
-        return $this->render('projection/index.html.twig', [
+        return $this->render('base_projection.html.twig', [
             'projections' => $projections,
         ]);
     }
@@ -45,7 +45,7 @@ class ProjectionController extends AbstractController
             return $this->redirectToRoute('projection_index');
         }
 
-        return $this->render('projection/new.html.twig', [
+        return $this->render('projection/add_projection.html.twig', [
             'projection' => $projection,
             'form' => $form->createView(),
         ]);
@@ -75,7 +75,7 @@ class ProjectionController extends AbstractController
             return $this->redirectToRoute('projection_index');
         }
 
-        return $this->render('projection/edit.html.twig', [
+        return $this->render('projection/updateprojection.html.twig', [
             'projection' => $projection,
             'form' => $form->createView(),
         ]);

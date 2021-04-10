@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Projection;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -75,7 +75,7 @@ class ArticleController extends AbstractController
             return $this->redirectToRoute('article_index');
         }
 
-        return $this->render('article/edit.html.twig', [
+        return $this->render('article/updatearticle.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
         ]);

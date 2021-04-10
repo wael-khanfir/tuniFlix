@@ -167,8 +167,15 @@
                         </div>
                     </div>
                 </div>
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
+                {{ form_start(form,{attr:{'novalidate':'novalidate'} }) }}
+                {{ form_label(form.titre) }}
+                {{ form_widget(form.titre,{'attr' : {'placeholder' : 'titre'}}) }}
+                {{ form_errors(form.titre) }}
+                <br>
+                {{ form_label(form.description) }}
+                {{ form_widget(form.description,{'attr' : {'placeholder' : 'decription'}}) }}
+                {{ form_errors(form.description) }}
+                <br>
                 <button class="btn">{{ button_label|default('Save') }}</button>
                 {{ form_end(form) }}
             </div>

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Article
@@ -25,6 +26,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255, nullable=false)
+     * @Assert\Length(min="2",max="10",minMessage="champ invalide")
      */
     private $titre;
 
@@ -32,6 +34,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
+
      */
     private $description;
 
