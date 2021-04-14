@@ -147,7 +147,7 @@ class Projection
     /**
      * @param string $image
      */
-    public function setImage(string $image): void
+    public function setImage($image)
     {
         $this->image = $image;
     }
