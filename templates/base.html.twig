@@ -186,6 +186,9 @@
                                                     <td>{{ article.id }}</td>
                                                     <td>{{ article.titre }}</td>
                                                     <td>{{ article.description }}</td>
+                                                    <td><img src="{{ asset('uploads/images/' ~ article.img) }}"
+                                                             alt="" style="width: 200mm  height:100mm"></td>
+                                                    <td>
                                                     <td>
 
                                                         <form method="post" action="{{ path('article_supp', {'id': article.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
@@ -205,6 +208,8 @@
                                         </table>
 
                                         <a href="{{ path('article_add') }}">Create new</a>
+                                        <br>
+                                        <a href="{{ path('frontarticle') }}">Voir les article</a>
                                     </div>
                                 </div>
                             </div>

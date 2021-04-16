@@ -38,7 +38,16 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file=$article->getImg();
+            $fileName=md5(uniqid()).'.'.$file->guessExtension();
+            try {
+                $file->move(
+                    $this->getParameter('images_directory'), $fileName);
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
             $entityManager = $this->getDoctrine()->getManager();
+            $article->setImg($fileName);
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -70,7 +79,18 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $file=$article->getImg();
+            $fileName=md5(uniqid()).'.'.$file->guessExtension();
+            try {
+                $file->move(
+                    $this->getParameter('images_directory'), $fileName);
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
+            $entityManager = $this->getDoctrine()->getManager();
+            $article->setImg($fileName);
+            $entityManager->persist($article);
+            $entityManager->flush();
 
             return $this->redirectToRoute('article_index');
         }

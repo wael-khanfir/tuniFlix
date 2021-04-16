@@ -52,7 +52,7 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="./typography.html">
                         <i class="material-icons">library_books</i>
-                        <p>Typography</p>
+                        <p>Gestion des projection</p>
                     </a>
                 </li>
                 <li class="nav-item ">
@@ -175,6 +175,10 @@
                 {{ form_label(form.description) }}
                 {{ form_widget(form.description,{'attr' : {'placeholder' : 'decription'}}) }}
                 {{ form_errors(form.description) }}
+                <br>
+                {{ form_label(form.img) }}
+                {{ form_widget(form.img) }}
+                {{ form_errors(form.img) }}
                 <br>
                 <button class="btn">{{ button_label|default('Save') }}</button>
                 {{ form_end(form) }}

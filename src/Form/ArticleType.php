@@ -4,8 +4,10 @@ namespace App\Form;
 
 use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ArticleType extends AbstractType
 {
@@ -13,7 +15,8 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('description')
+            ->add('description',TextType::class)
+            ->add('img',FileType::class, array('data_class' => null))
         ;
     }
 

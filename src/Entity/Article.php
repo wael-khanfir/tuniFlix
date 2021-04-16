@@ -26,7 +26,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255, nullable=false)
-     * @Assert\Length(min="2",max="10",minMessage="champ invalide")
+     * @Assert\Length(min="2",max="20",minMessage="champ invalide")
      */
     private $titre;
 
@@ -39,11 +39,35 @@ class Article
     private $description;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=255, nullable=false)
+
+     */
+    private $img;
+
+    /**
      * @return int
      */
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param string $img
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
     }
 
     /**

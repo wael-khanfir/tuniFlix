@@ -115,4 +115,10 @@ class ProjectionController extends AbstractController
 
         return $this->redirectToRoute('projection_index');
     }
+
+    /**
+     * @Route("/aa", name="aa", methods={"GET"})
+     */
+
+
 }
