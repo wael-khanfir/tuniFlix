@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Salle index{% endblock %}
+
+
+
+{% block content %}
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Table Salle</h4>
+                <p class="card-category"> Les Salles:</p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>DateDiffusion</th>
+                        <th>NbPlaces</th>
+                        <th>Disponible</th>
+
+                        <th>Actions</th>
+                        </thead>
+                        <tbody>
+                        {% for salle in salles %}
+                            <tr>
+                                <td>{{ salle.id }}</td>
+                                <td>{{ salle.nom }}</td>
+                                <td>{{ salle.dateDiffusion ? salle.dateDiffusion|date('Y-m-d') : '' }}</td>
+                                <td>{{ salle.nbPlaces }}</td>
+                                <td>{{ salle.disponible }}</td>
+                                <td>
+
+                                    <form method="post" action="{{ path('salle_delete', {'id': salle.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ salle.id) }}">
+                                        <button class="btn">Delete</button>
+                                    </form>
+                                    <a href="{{ path('salle_edit', {'id': salle.id}) }}">edit</a>
+
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="6">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <a href="{{ path('salle_new') }}">Create new</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

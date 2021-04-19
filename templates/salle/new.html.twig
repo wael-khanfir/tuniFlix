@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Salle{% endblock %}
+
+{% block content %}
+    <h1>Creer nouvelle Salle</h1>
+
+    {{ form_start (form, {'attr' : {'novalidate':'novalidate'}}) }}
+
+
+    {{  form_label(form.nom, "Nom:") }}
+    {{  form_widget(form.nom, {'attr': {'placeholder':'Nom Salle'}}) }}
+    {{  form_errors(form.nom) }}
+    <br>
+    {{  form_label(form.nbPlaces, "Nombre de places:") }}
+    {{  form_widget(form.nbPlaces, {'attr': {'placeholder':'Nombre de places'}}) }}
+    {{  form_errors(form.nbPlaces) }}
+    <br>
+    {{  form_label(form.disponible, "disponible:") }}
+    {{  form_widget(form.disponible, {'attr': {'placeholder':'oui / non'}}) }}
+    {{  form_errors(form.disponible) }}
+    <br>
+
+
+    {{ include('salle/_form.html.twig') }}
+    <a href="{{ path('salle_index') }}">back to list</a>
+
+    {{ form_end (form) }}
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Cinema front{% endblock %}
+
+{% block content %}
+
+    <div id="content">
+    <div class="line-hor"></div>
+
+
+    <div class="box">
+        <div class="border-right">
+            <div class="border-left">
+                <div class="inner">
+                    <h3><cufon class="cufon cufon-canvas" alt="Nos " style="width: 129px; height: 30px;"><canvas width="155" height="35" style="width: 155px; height: 35px; top: -3px; left: -2px;"></canvas><cufontext>Nos </cufontext></cufon><cufon class="cufon cufon-canvas" alt="Cinemas " style="width: 35px; height: 30px;"><canvas width="62" height="35" style="width: 62px; height: 35px; top: -3px; left: -2px;"></canvas><cufontext>Cinemas </cufontext></cufon><b><cufon class="cufon cufon-canvas" alt="." style="width: 94px; height: 30px;"><canvas width="116" height="35" style="width: 116px; height: 35px; top: -3px; left: -2px;"></canvas><cufontext>  </cufontext></cufon></b><cufon class="cufon cufon-canvas" alt=" " style="width: 9px; height: 30px;"><canvas width="35" height="35" style="width: 35px; height: 35px; top: -3px; left: -2px;"></canvas><cufontext> </cufontext></cufon><span><cufon class="cufon cufon-canvas" alt="Disponibles :" style="width: 82px; height: 30px;"><canvas width="102" height="35" style="width: 102px; height: 35px; top: -3px; left: -2px;"></canvas><cufontext>Disponibles</cufontext></cufon></span></h3>
+                    <table class="table">
+                        <thead class=" text-primary">
+
+                        <th><h4>
+                              Nom De La Salle De Cinema :
+                        </h4></th>
+                        <th><h4>
+                            Crée le :
+                            </h4></th>
+                        <th><h4>
+                            L'Adresse :
+                            </h4></th>
+                        <th><h4>
+                            Contact :
+                            </h4></th>
+
+
+
+                        </thead>
+                        <tbody>
+                        {% for cinema in cinemas %}
+                            <tr>
+
+                                <td><h5>{{ cinema.nom }}</h5></td>
+
+                                <td><h5>{{ cinema.dateCreation ? cinema.dateCreation|date('Y-m-d') : '' }}</h5></td>
+
+                                <td><h5>{{ cinema.adresse }}</h5></td>
+
+                                <td><h5>{{ cinema.email }}</h5></td>
+
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="4">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <br>
+                    </table>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="inner-page">
+<br>
+        <br>
+        <br>
+        <div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+                    <div class="wpb_text_column wpb_content_element " >
+                        <div class="wpb_wrapper">
+
+
+                            <ul class="w3-ul">
+                                <li><h3>Venez decouvrir notre nouvelle salle à</h3>
+                                <h4> Tunis City</h4>
+                                </li>
+                            </ul>
+
+                                <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                                        <div class="vc_column-inner">
+                                            <div class="wpb_wrapper">
+                                                <div class="wpb_raw_code wpb_content_element wpb_raw_html" >
+                                                    <div class="wpb_wrapper">
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3190.6686113854853!2d10.122543714091735!3d36.898275269874745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cd6296dfc1a7%3A0x4926081d97550564!2sPath%C3%A9%20Tunis%20City!5e0!3m2!1sfr!2stn!4v1618801558799!5m2!1sfr!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                                    </div>
+                                                </div>
+
+                                             </div>
+                                        </div>
+                                        <br>
+                                        <div class="wrapper"><a href="{{ path('street') }}" class="link1"><span><span>Street View</span></span></a></div>
+                                     </div>
+
+
+                        </div>
+                    </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+{% endblock %}

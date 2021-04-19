@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+
+
+<form method="POST">
+    <p>
+        <input type="text" name="address" placeholder="Enter address">
+    </p>
+
+
+    <input type="submit" name="submit_address">
+</form>
+

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel Cinema{% endblock %}
+
+{% block content %}
+    <h1>Creer nouvel Cinema</h1>
+
+    {{ form_start (form) }}
+
+    {{  form_label(form.nom, "Nom:") }}
+    {{  form_widget(form.nom, {'attr': {'placeholder':'Nom Salle'}}) }}
+    {{  form_errors(form.nom) }}
+    <br>
+    {{  form_label(form.adresse, "Adresse:") }}
+    {{  form_widget(form.adresse, {'attr': {'placeholder':'Adresse'}}) }}
+    {{  form_errors(form.adresse) }}
+    <br>
+    {{  form_label(form.email, "Email:") }}
+    {{  form_widget(form.email, {'attr': {'placeholder':'Mail'}}) }}
+    {{  form_errors(form.email) }}
+    <br>
+
+
+    {{ include('cinema/_form.html.twig') }}
+    <a href="{{ path('cinema_index') }}">back to list</a>
+
+    {{ form_end (form) }}
+{% endblock %}
