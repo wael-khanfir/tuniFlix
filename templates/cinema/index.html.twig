@@ -16,9 +16,7 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                        <th>
-                            ID
-                        </th>
+                       
                         <th>
                             Nom
                         </th>
@@ -37,7 +35,7 @@
                         <tbody>
                         {% for cinema in cinemas %}
                             <tr>
-                                <td>{{ cinema.id }}</td>
+
                                 <td>{{ cinema.nom }}</td>
                                 <td>{{ cinema.dateCreation ? cinema.dateCreation|date('Y-m-d') : '' }}</td>
                                 <td>{{ cinema.adresse }}</td>

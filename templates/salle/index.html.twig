@@ -18,7 +18,7 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
-                        <th>Id</th>
+
                         <th>Nom</th>
                         <th>DateDiffusion</th>
                         <th>NbPlaces</th>
@@ -29,7 +29,7 @@
                         <tbody>
                         {% for salle in salles %}
                             <tr>
-                                <td>{{ salle.id }}</td>
+
                                 <td>{{ salle.nom }}</td>
                                 <td>{{ salle.dateDiffusion ? salle.dateDiffusion|date('Y-m-d') : '' }}</td>
                                 <td>{{ salle.nbPlaces }}</td>
