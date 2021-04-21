@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -67,6 +69,16 @@ class Cinema
     private $email;
 
     /**
+     * @ORM\OneToMany(targetEntity=Salle::class, mappedBy="cinema", orphanRemoval=true)
+     */
+    private $salles;
+
+    public function __construct()
+    {
+        $this->salles = new ArrayCollection();
+    }
+
+    /**
      * @return string
      */
     public function getNom(): ?string
@@ -128,6 +140,36 @@ class Cinema
     public function setEmail(string $email): void
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return Collection|Salle[]
+     */
+    public function getSalles(): Collection
+    {
+        return $this->salles;
+    }
+
+    public function addSalle(Salle $salle): self
+    {
+        if (!$this->salles->contains($salle)) {
+            $this->salles[] = $salle;
+            $salle->setCinema($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSalle(Salle $salle): self
+    {
+        if ($this->salles->removeElement($salle)) {
+            // set the owning side to null (unless already changed)
+            if ($salle->getCinema() === $this) {
+                $salle->setCinema(null);
+            }
+        }
+
+        return $this;
     }
 
 

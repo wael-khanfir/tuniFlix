@@ -59,6 +59,12 @@ class Salle
     private $disponible;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Cinema::class, inversedBy="salles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $cinema;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -137,6 +143,18 @@ class Salle
     public function setDisponible(string $disponible): void
     {
         $this->disponible = $disponible;
+    }
+
+    public function getCinema(): ?Cinema
+    {
+        return $this->cinema;
+    }
+
+    public function setCinema(?Cinema $cinema): self
+    {
+        $this->cinema = $cinema;
+
+        return $this;
     }
 
 

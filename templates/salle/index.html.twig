@@ -20,6 +20,7 @@
                         <thead class=" text-primary">
 
                         <th>Nom</th>
+                        <th>Cinema</th>
                         <th>DateDiffusion</th>
                         <th>NbPlaces</th>
                         <th>Disponible</th>
@@ -27,20 +28,21 @@
                         <th>Actions</th>
                         </thead>
                         <tbody>
-                        {% for salle in salles %}
+                        {% for s in salles %}
                             <tr>
 
-                                <td>{{ salle.nom }}</td>
-                                <td>{{ salle.dateDiffusion ? salle.dateDiffusion|date('Y-m-d') : '' }}</td>
-                                <td>{{ salle.nbPlaces }}</td>
-                                <td>{{ salle.disponible }}</td>
+                                <td>{{ s.nom }}</td>
+                                <td>{{ s.Cinema.nom }}</td>
+                                <td>{{ s.dateDiffusion ? s.dateDiffusion|date('Y-m-d') : '' }}</td>
+                                <td>{{ s.nbPlaces }}</td>
+                                <td>{{ s.disponible }}</td>
                                 <td>
 
-                                    <form method="post" action="{{ path('salle_delete', {'id': salle.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ salle.id) }}">
+                                    <form method="post" action="{{ path('salle_delete', {'id': s.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ s.id) }}">
                                         <button class="btn">Delete</button>
                                     </form>
-                                    <a href="{{ path('salle_edit', {'id': salle.id}) }}">edit</a>
+                                    <a href="{{ path('salle_edit', {'id': s.id}) }}">edit</a>
 
                                 </td>
                             </tr>

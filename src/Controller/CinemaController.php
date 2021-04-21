@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Cinema;
 use App\Form\CinemaType;
+use App\Repository\CinemaRepository;
 use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -115,53 +116,30 @@ class CinemaController extends AbstractController
 
 
 
-  //  /**
-   //  * @return Response
-   //  * @Route("cinema/trie",name="trie")
-   //  */
- /*
-    function OrderByMailSQL(Request $request)
-    { $cinemas= $this->getDoctrine()
-        ->getRepository(Cinema::class)->OrderByAdress();
+//    /**
+//     * @param CinemaRepository $repository
+//     * @return Response
+//     * @Route("cinema/Trie",name="trie")
+//     */
+ /*   function OrderByMailSQL( CinemaRepository $repository,Request $request,PaginatorInterface $paginator): Response
+    { $cinema=$repository->OrderByAdress();
 
-        return $this->render('cinema/index.html.twig', [
-            'cinemas' => $cinemas,
-        ]);
 
+        $pagination = $paginator->paginate(
+            $cinema,
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', 3)
+        );
+        return $this->render('cinema/index.html.twig',
+            ['cinema'=>$pagination]);
     }
-
-    public function findOneByAdresse($value): ?Cinema
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.adresse = :"mall of sousse"')
-            ->setParameter('mall of sousse', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-            ;
-    }
-
-    function findEnabled()
-    { return $this->createQueryBuilder('c')
-        ->where('c.enabled=:enabled')
-        ->andWhere('c.adresse >= adresse')
-        ->setParameter('enabled',true)
-        ->getQuery()->getResult();}
-
-    function findEnabled2()
-    { return $this->createQueryBuilder('c')
-        ->where('c.enabled=:enabled')
-        ->andWhere('c.adresse <= adresse')
-        ->setParameter('enabled',false)
-        ->getQuery()->getResult();}
-
-    public function OrderByAdress()
+ public function OrderByAdress()
     {
         $entityManager = $this->getEntityManager();
-        $query= $entityManager->createQuery('SELECT c FROM App\Entity\Cinema c ORDER BY c.adresse ASC');
+        $query = $entityManager->createQuery('SELECT c FROM App\Entity\Cinema c ORDER BY c.adresse ASC');
         return $query->getResult();
-    }
+    } */
 
-*/
 } ?>
 
 

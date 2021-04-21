@@ -26,10 +26,5 @@ class CinemaType extends AbstractType
         ]);
     }
 
-    public function recherche()
-    {
-
-
-    }
 
 }
