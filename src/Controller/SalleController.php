@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Salle;
 use App\Form\SalleType;
+use App\Repository\SalleRepository;
 use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -108,5 +109,18 @@ class SalleController extends AbstractController
 
         $flashy->primaryDark('salle supprimée avec succés', 'http://your-awesome-link.com');
         return $this->redirectToRoute('salle_index');
+    }
+
+    /**
+     * @Route("/salle/recherche", name="recherches")
+     */
+    public function Recherche(SalleRepository $repository, Request $request): Response
+    {
+        $data=$request->get('searchs');
+        $salles =$repository->findBy(['nom'=>$data]);
+
+        return $this->render('salle/index.html.twig', [
+            'salles' => $salles,
+        ]);
     }
 }

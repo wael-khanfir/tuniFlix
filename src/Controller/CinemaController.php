@@ -140,7 +140,45 @@ class CinemaController extends AbstractController
         return $query->getResult();
     } */
 
+    public function searchAction (Request $request): Response
+    {
+        $em =$this ->getDoctrine()->getManager();
+        $requestString =$request->get('q');
+        $cinemas=$em->getRepository('Cinema')->findEntitiesByString($requestString);
+        if(!cinemas){
+            $result['cinemas']['error']="cinema not found";
+        }else{
+            $result['cinemas']=$this->getRealEntities($cinemas);
+        }
+        return new Response(json_encode($result));
+    }
+
+    public function getRealEntities($cinemas)
+    {
+        foreach($cinemas as $cinemas){
+            $realEntities[$cinemas->getId()]=[$cinemas->getNom(),$cinemas->getAdresse()];
+        }
+        return $realEntities;
+    }
+
+
+    /**
+     * @Route("/cinema/recherche", name="recherche")
+     */
+    public function Recherche(CinemaRepository $repository, Request $request): Response
+    {
+        $data=$request->get('search');
+        $cinemas =$repository->findBy(['nom'=>$data]);
+
+        return $this->render('cinema/index.html.twig', [
+            'cinemas' => $cinemas,
+        ]);
+    }
+
+
 } ?>
+
+
 
 
 
