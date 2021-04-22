@@ -10,11 +10,19 @@
 
         <div style="margin-left: 550px;">
             <form method="post" action="{{ path('recherche') }}">
-                <label class=" text-primary"> Recherche: </label>
+                <label class=" text-primary"> Rechercher: </label>
                 <input type="text" name="search"><input class="btn" type="submit" value="Recherche">
             </form>
 
+
         </div>
+
+    <div style="margin-left: 720px;">
+        <form method="post" action="{{ path('triecinemadql') }}">
+            <label class=" text-primary"> Trier par Email: </label>
+           <input class="btn" type="submit" value="trier">
+        </form>
+    </div>
 
         <div class="card">
             <div class="card-header card-header-primary">

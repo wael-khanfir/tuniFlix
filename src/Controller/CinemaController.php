@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Cinema;
 use App\Form\CinemaType;
 use App\Repository\CinemaRepository;
+use App\Repository\SalleRepository;
 use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -173,6 +174,21 @@ class CinemaController extends AbstractController
         return $this->render('cinema/index.html.twig', [
             'cinemas' => $cinemas,
         ]);
+    }
+
+    /**
+     * @param CinemaRepository $repository
+     * @return Response
+     * @Route ("/cinema/ListDQL" , name="triecinemadql")
+     */
+    function OrderByMailDQL(CinemaRepository $repository): Response
+    {
+
+        $cinemas=$repository->OrderByMailDQL();
+        return $this->render('cinema/index.html.twig', [
+            'cinemas' => $cinemas,
+        ]);
+
     }
 
 

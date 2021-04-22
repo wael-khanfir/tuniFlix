@@ -123,4 +123,20 @@ class SalleController extends AbstractController
             'salles' => $salles,
         ]);
     }
+
+
+    /**
+     * @param SalleRepository $repository
+     * @return Response
+     * @Route ("/salle/ListQB" , name="triesalleqb")
+     */
+    function OrderByMailQB(SalleRepository $repository): Response
+    {
+
+        $salles=$repository->OrderByNomQB();
+        return $this->render('salle/index.html.twig', [
+            'salles' => $salles,
+        ]);
+
+    }
 }
