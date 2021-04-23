@@ -11,7 +11,7 @@ ul, ol {list-style:none}
 /* GLOBAL */
 #main {width:940px;margin:0 auto;font-size:0.875em}
 #header {height:171px;margin-bottom:-8px}
-#footer {background:url(../../../Cinema_World-HTML5/images/footer-tail.gif) repeat-x left top #bfbfbf;color:#1d1d1d;font-size:.86em;line-height:1.667em;text-align:center}
+#footer {background:url(images/footer-tail.gif) repeat-x left top #bfbfbf;color:#1d1d1d;font-size:.86em;line-height:1.667em;text-align:center}
 /* ALIGMENT */
 .fleft {float:left}
 .fright {float:right}
@@ -23,15 +23,15 @@ ul, ol {list-style:none}
 .extra-wrap {overflow:hidden}
 .container {width:100%}
 /* TAILING */
-.tail-top {background:url(../../../Cinema_World-HTML5/images/tail-top.gif) left top repeat-x #1d1d1d}
-.tail-bottom {background:url(../../../Cinema_World-HTML5/images/tail-bottom.gif) left bottom repeat-x}
+.tail-top {background:url(images/tail-top.gif) left top repeat-x #1d1d1d}
+.tail-bottom {background:url(images/tail-bottom.gif) left bottom repeat-x}
 /* FORMS */
 #contacts-form {clear:right;width:842px;overflow:hidden}
 #contacts-form fieldset {border:none;float:left}
 #contacts-form .field {clear:both}
 #contacts-form label {float:left;width:112px !important;width:109px;line-height:18px;padding-bottom:8px;color:#fff}
 #contacts-form input {width:293px;padding:1px 0 1px 3px;background:#000;border:1px solid #3a3a3a;color:#fff}
-#contacts-form textarea {width:674px;height:174px;padding:2px 28px 1px 28px;background:url(../../../Cinema_World-HTML5/images/textarea-bg.gif) no-repeat left top;border:0;color:#fff;margin-bottom:15px;overflow:auto}
+#contacts-form textarea {width:674px;height:174px;padding:2px 28px 1px 28px;background:url(images/textarea-bg.gif) no-repeat left top;border:0;color:#fff;margin-bottom:15px;overflow:auto}
 #contacts-form .link2 {float:right}
 /* LISTS */
 .movies {width:100%}
@@ -47,7 +47,7 @@ ul, ol {list-style:none}
 .list li a {text-decoration:none}
 .list li a:hover {color:#d72a18}
 .sitemap-list {padding-bottom:25px}
-.sitemap-list li {padding:0 0 0 10px;line-height:1.714em;background:url(../../../Cinema_World-HTML5/images/arrow.gif) no-repeat left 8px}
+.sitemap-list li {padding:0 0 0 10px;line-height:1.714em;background:url(images/arrow.gif) no-repeat left 8px}
 .sitemap-list li a {color:#d72a18}
 /* OTHER */
 .img-box1 {width:100%;overflow:hidden;line-height:1.714em;padding:10px 0 12px 0}
@@ -69,19 +69,19 @@ h3 {font-size:30px;line-height:1.2em;color:#bfbfbf;margin-bottom:20px}
 h3 b {color:#e1e1e1;font-weight:normal}
 h3 span {color:#d72a18}
 h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bottom:18px}
-.link1 {display:block;float:left;background:url(../../../Cinema_World-HTML5/images/link1-right.png) no-repeat right top;color:#fff;text-decoration:none;line-height:1em;cursor:pointer}
+.link1 {display:block;float:left;background:url(images/link1-right.png) no-repeat right top;color:#fff;text-decoration:none;line-height:1em;cursor:pointer}
 .link1:hover span {text-decoration:underline}
-.link1 span {display:block;float:left;padding:0 5px;background:url(../../../Cinema_World-HTML5/images/link1-left.png) no-repeat left top}
-.link1 span span {display:block;background:url(../../../Cinema_World-HTML5/images/link1-tail.gif) repeat-x left top;padding:8px 15px}
-.link2 {display:block;float:left;background:url(../../../Cinema_World-HTML5/images/link2-right.gif) no-repeat right top;color:#fff;cursor:pointer;text-decoration:none;line-height:1em}
+.link1 span {display:block;float:left;padding:0 5px;background:url(images/link1-left.png) no-repeat left top}
+.link1 span span {display:block;background:url(images/link1-tail.gif) repeat-x left top;padding:8px 15px}
+.link2 {display:block;float:left;background:url(images/link2-right.gif) no-repeat right top;color:#fff;cursor:pointer;text-decoration:none;line-height:1em}
 .link2:hover span {text-decoration:underline}
-.link2 span {display:block;float:left;padding:0 6px;background:url(../../../Cinema_World-HTML5/images/link2-left.gif) no-repeat left top}
-.link2 span span {display:block;background:url(../../../Cinema_World-HTML5/images/link2-tail.gif) repeat-x left top;padding:9px 15px 10px 15px}
-.line-hor {overflow:hidden;font-size:0;line-height:0;width:918px;height:8px;margin-left:11px;background:url(../../../Cinema_World-HTML5/images/line-hor.gif) repeat-x left top;z-index:1;position:relative}
+.link2 span {display:block;float:left;padding:0 6px;background:url(images/link2-left.gif) no-repeat left top}
+.link2 span span {display:block;background:url(images/link2-tail.gif) repeat-x left top;padding:9px 15px 10px 15px}
+.line-hor {overflow:hidden;font-size:0;line-height:0;width:918px;height:8px;margin-left:11px;background:url(images/line-hor.gif) repeat-x left top;z-index:1;position:relative}
 /* BOXES */
 .box {background:#000;width:100%;margin-top:-3px}
-.box .border-left {background:url(../../../Cinema_World-HTML5/images/border-left.gif) repeat-y left top}
-.box .border-right {background:url(../../../Cinema_World-HTML5/images/border-right.gif) repeat-y right top}
+.box .border-left {background:url(images/border-left.gif) repeat-y left top}
+.box .border-right {background:url(images/border-right.gif) repeat-y right top}
 .box .inner {padding:28px 50px 25px 50px}
 /* HEADER */
 #header .row-1 {height:112px;width:100%;overflow:hidden}
@@ -93,18 +93,18 @@ h4 {font-size:20px;line-height:1.2em;letter-spacing:-1px;color:#2c6d9a;margin-bo
 #header .row-2 ul {width:100%;overflow:hidden}
 #header .row-2 ul li {float:left;font-size:20px;line-height:2.4em;margin-right:5px;background-color:#000}
 #header .row-2 ul li.last {margin-right:0}
-#header .row-2 ul li a {text-decoration:none;color:#f0f0f0;width:184px;height:56px;float:left;background-image:url(../../../Cinema_World-HTML5/images/nav-bg.gif);background-repeat:no-repeat;background-position:0 0;text-align:center}
-#header .row-2 ul li a:hover, #header .row-2 ul li a.active {color:#d72a18;background-image:url(../../../Cinema_World-HTML5/images/nav-act.gif)}
+#header .row-2 ul li a {text-decoration:none;color:#f0f0f0;width:184px;height:56px;float:left;background-image:url(images/nav-bg.gif);background-repeat:no-repeat;background-position:0 0;text-align:center}
+#header .row-2 ul li a:hover, #header .row-2 ul li a.active {color:#d72a18;background-image:url(images/nav-act.gif)}
 /* CONTENT */
 #content .content {padding:30px 0 39px 50px}
 .ic, .ic a {border:0;float:right;background:#f00;color:#f00;width:50%;line-height:10px;font-size:10px;margin:-50% 0 0 0;overflow:hidden;padding:0}
 /* FOOTER */
-#footer .left {background:url(../../../Cinema_World-HTML5/images/footer-left.gif) no-repeat left top}
-#footer .right {min-height:89px;height:auto !important;height:89px;background:url(../../../Cinema_World-HTML5/images/footer-right.gif) no-repeat right top;text-align:center}
+#footer .left {background:url(images/footer-left.gif) no-repeat left top}
+#footer .right {min-height:89px;height:auto !important;height:89px;background:url(images/footer-right.gif) no-repeat right top;text-align:center}
 #footer .inside {padding:13px 0}
 #footer a {color:#2c6d9a}
-#slogan {width:940px;height:322px;position:relative;background:url(../../../Cinema_World-HTML5/images/banner-bg.gif) no-repeat left top;color:#1d1d1d}
-#slogan .image {position:absolute;right:-30px;top:-11px;z-index:100;width:572px;height:348px;background:url(../../../Cinema_World-HTML5/images/banner-img.png) no-repeat left top}
+#slogan {width:940px;height:322px;position:relative;background:url(images/banner-bg.gif) no-repeat left top;color:#1d1d1d}
+#slogan .image {position:absolute;right:-30px;top:-11px;z-index:100;width:572px;height:348px;background:url(images/banner-img.png) no-repeat left top}
 #slogan p {margin-bottom:23px}
 #slogan .inside {padding:36px 0 0 50px;width:320px}
 #page1 #content .box {margin:0}

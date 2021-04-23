@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +57,23 @@ class Projection
      * @ORM\Column(name="image", type="string", length=10000, nullable=false)
      */
     private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ProgrammerFilm::class, mappedBy="projection",cascade={"all"},orphanRemoval=true)
+     */
+    private $programmerFilms;
+
+    public function __construct()
+    {
+        $this->programmerFilms = new ArrayCollection();
+    }
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=44, nullable=false)
+     */
+    private $description;
+
 
     /**
      * @return int
@@ -151,6 +170,56 @@ class Projection
     {
         $this->image = $image;
     }
+
+    /**
+     * @return Collection|ProgrammerFilm[]
+     */
+    public function getProgrammerFilms(): Collection
+    {
+        return $this->programmerFilms;
+    }
+
+    public function addProgrammerFilm(ProgrammerFilm $programmerFilm): self
+    {
+        if (!$this->programmerFilms->contains($programmerFilm)) {
+            $this->programmerFilms[] = $programmerFilm;
+            $programmerFilm->setProjection($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgrammerFilm(ProgrammerFilm $programmerFilm): self
+    {
+        if ($this->programmerFilms->removeElement($programmerFilm)) {
+            // set the owning side to null (unless already changed)
+            if ($programmerFilm->getProjection() === $this) {
+                $programmerFilm->setProjection(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+
+
+
 
 
 }

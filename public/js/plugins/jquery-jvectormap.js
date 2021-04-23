@@ -1202,7 +1202,7 @@ jvm.VMLCircleElement.prototype.applyAttr = function(attr, value) {
   }
 };
 /**
- * Class for vector images manipulations.
+ * Class for vector image manipulations.
  * @constructor
  * @param {DOMElement} container to place canvas to
  * @param {Number} width

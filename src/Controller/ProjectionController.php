@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Entity\Projection;
 use App\Form\ProjectionType;
+use App\Repository\ProgrammerFilmRepository;
+use App\Repository\ProjectionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,16 +20,16 @@ class ProjectionController extends AbstractController
     /**
      * @Route("/", name="projection_index", methods={"GET"})
      */
-    public function index(): Response
-    {
-        $projections = $this->getDoctrine()
-            ->getRepository(Projection::class)
-            ->findAll();
 
+        public function index(ProjectionRepository $repository ): Response
+    {
+        $projections=$repository->tri_id();
         return $this->render('base_projection.html.twig', [
             'projections' => $projections,
         ]);
     }
+
+
 
     /**
      * @Route("/new", name="projection_new", methods={"GET","POST"})
@@ -115,10 +117,15 @@ class ProjectionController extends AbstractController
 
         return $this->redirectToRoute('projection_index');
     }
-
     /**
-     * @Route("/aa", name="aa", methods={"GET"})
+     * @Route("/{id}/prog", name="liste_prog", methods={"GET"})
      */
-
-
+ public  function listeprog(ProjectionRepository $repproj ,ProgrammerFilmRepository $repprog,$id)
+ {
+ $projection=$repproj->find($id);
+ $programme=$repprog->recherche($projection->getId());
+ return $this->render("rech.html.twig",[
+     'programmer_films'=>$programme,'projection'=>$projection
+ ]);
+  }
 }

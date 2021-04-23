@@ -17,7 +17,7 @@
     <script type="text/javascript">
         ie_png.fix('.png, .link1 span, .link1');
     </script>
-    <link href="{{asset('ie6.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('ie6.css') }}" rel="stylesheet" type="text/css" />
     <![endif]-->
 </head>
 <body id="page1">
@@ -27,11 +27,11 @@
 {% block header %}
     <div id="header">
         <div class="row-1">
-            <div class="fleft"><a href="index.html">Tuni <span>Flix</span></a></div>
+            <div class="fleft"><a href="{{ path('front') }}">Tuni <span>Flix</span></a></div>
             <ul>
                 <li><a href="{{ asset('index.html') }}"><img src="{{ asset('images/icon1-act.gif') }}" alt="" /></a></li>
                 <li><a href="{{ asset('contact-us.html') }}"><img src="{{ asset('images/icon2.gif') }}" alt="" /></a></li>
-                <li><a href="sitemap.html"><img src="{{ asset('images/icon3.gif') }}" alt="" /></a></li>
+                <li><a href="{{ path('frontprog') }}"><img src="{{ asset('images/icon3.gif') }}" alt="" /></a></li>
             </ul>
         </div>
         <div class="row-2">
@@ -40,7 +40,7 @@
                 <li><a href="about-us.html">About</a></li>
                 <li><a href="{{ path('frontarticle') }}">Articles</a></li>
                 <li><a href="contact-us.html">Contacts</a></li>
-                <li class="last"><a href="sitemap.html">Sitemap</a></li>
+                <li class="last"><a href="{{ path('frontprog') }}">Sitemap</a></li>
             </ul>
         </div>
     </div>
@@ -63,7 +63,7 @@
                         <h3>Welcome to <b>Cinema</b> <span>World</span></h3>
                         <p>Cinema World Site is a free web template created by TemplateMonster.com team. This website template is optimized for 1024X768 screen resolution. It is also XHTML &amp; CSS valid.</p>
                         <div class="img-box1"><img src="{{ asset('images/1page-img1.jpg') }}" alt="" />This website template can be delivered in two packages - with PSD source files included and without them. If you need PSD source files, please go to the template download page at TemplateMonster to leave the e-mail address that you want the template ZIP package to be delivered to.</div>
-                        <p>This website template has several pages: <a href="index.html">Home</a>, <a href="about-us.html">About us</a>, <a href="articles.html">Articles</a> (with Article page), <a href="contact-us.html">Contact us</a> (note that contact us form – doesn’t work), <a href="sitemap.html">Site Map</a>.</p>
+                        <p>This website template has several pages: <a href="index.html">Home</a>, <a href="about-us.html">About us</a>, <a href="articles.html">Articles</a> (with Article page), <a href="{{ path('frontprog') }}">Contact us</a> (note that contact us form – doesn’t work), <a href="sitemap.html">Site Map</a>.</p>
                     </div>
                 </div>
             </div>
@@ -73,11 +73,12 @@
             <ul class="movies">
                 <li>
                     {% for projection in projections %}
-                    <h4>{{ projection.nom }}</h4><img src="{{ asset('uploads/images/' ~ projection.image) }}"
-                                                 alt="" style="width: 200mm  height:100mm">
+                    <h4>{{ projection.nom }}</h4><img src="{{ asset('uploads/image/' ~ projection.image) }}"
+                                                 alt="" style="width: 200px  height:100px">
 
-                    <p>Check out our best movies, watch the <span>Top 3Story </span> trailer, and meet new characters. Remember, no toy gets left behind!</p>
-                    <div class="wrapper"><a href="#" class="link2"><span><span>genre:{{ projection.genre }}</span><span>{{ projection.duree }}h</span><span>Read More</span></span></a></div>
+                    <p>{{ projection.description }} </p>
+                    <div class="wrapper"><a href="#" class="link2"><span><span>genre:{{ projection.genre }}</span><span>{{ projection.duree }}h</span></span></a></div>
+                    <a href="{{ path('liste_prog', {'id': projection.id}) }}">Voir programme</a>
                 </li>
 
 

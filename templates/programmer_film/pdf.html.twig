@@ -1,0 +1,32 @@
+
+{% block body %}
+    <h1>Liste des programmes</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date_projection</th>
+            <th>Langue</th>
+            <th>Projection</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for programmer_film in programmer_films %}
+            <tr>
+                <td>{{ programmer_film.id }}</td>
+                <td>{{ programmer_film.dateProjection ? programmer_film.dateProjection|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ programmer_film.langue }}</td>
+                <td>{{ programmer_film.projection.nom}}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

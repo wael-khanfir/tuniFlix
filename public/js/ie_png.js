@@ -25,7 +25,7 @@ var ie_png = {
 		var styleSheet = style.styleSheet;
 		styleSheet.addRule(this.ns + '\\:*', '{behavior:url(#default#VML)}');
 		styleSheet.addRule(this.ns + '\\:rect', 'position:absolute;');
-		styleSheet.addRule('img.' + this.ns + '_sizeFinder', 'position:absolute; z-index:-1; top:-10000px; visibility:hidden;'); /* large negative top value for avoiding vertical scrollbars for large images, suggested by James O'Brien, http://www.thanatopsic.org/hendrik/ */
+		styleSheet.addRule('img.' + this.ns + '_sizeFinder', 'position:absolute; z-index:-1; top:-10000px; visibility:hidden;'); /* large negative top value for avoiding vertical scrollbars for large image, suggested by James O'Brien, http://www.thanatopsic.org/hendrik/ */
 		this.styleSheet = styleSheet;
 	},
 	
