@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Invite index{% endblock %}
+
+{% block body %}
+    <h1>Invite index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Career</th>
+                <th>InterviewType</th>
+                <th>InterviewDate</th>
+                <th>AppointedNum</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for invite in invites %}
+            <tr>
+                <td>{{ invite.id }}</td>
+                <td>{{ invite.firstName }}</td>
+                <td>{{ invite.lastName }}</td>
+                <td>{{ invite.email }}</td>
+                <td>{{ invite.career }}</td>
+                <td>{{ invite.interviewType }}</td>
+                <td>{{ invite.interviewDate ? invite.interviewDate|date('Y-m-d') : '' }}</td>
+                <td>{{ invite.appointedNum }}</td>
+                <td>
+                    <a href="{{ path('invite_show', {'id': invite.id}) }}">show</a>
+                    <a href="{{ path('invite_edit', {'id': invite.id}) }}">edit</a>
+                </td>
+            </tr>
+
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('invite_new') }}">Create new</a>
+    {{ knp_pagination_render(invites) }}
+
+{% endblock %}
