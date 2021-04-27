@@ -10,12 +10,12 @@
     <div class="row">
     <div class="col-md-12">
 
-        <div style="margin-left: 550px;">
-            <form method="post" action="{{ path('recherches') }}">
-                <label class=" text-primary"> Recherche: </label>
-                <input type="text" name="searchs"><input class="btn" type="submit" value="Recherche">
-            </form>
+        <div style="margin-left: 670px;">
+
+            <label class=" text-primary"> Rechercher: </label>
+            <input id="myInput" type="text" name="search" placeholder="Search..">
         </div>
+
 
         <div style="margin-left: 720px;">
             <form method="post" action="{{ path('triesalleqb') }}">
@@ -42,7 +42,7 @@
 
                         <th>Actions</th>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                         {% for s in salles %}
                             <tr>
 

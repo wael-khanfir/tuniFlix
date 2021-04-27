@@ -18,12 +18,12 @@ class SalleController extends AbstractController
 {
     /**
      * @Route("/", name="salle_index", methods={"GET"})
+     * @param $repository
+     * @return Response
      */
-    public function index(): Response
+    public function index(SalleRepository $repository): Response
     {
-        $salles = $this->getDoctrine()
-            ->getRepository(Salle::class)
-            ->findAll();
+        $salles=$repository->OrderByIdDQL();
 
         return $this->render('salle/index.html.twig', [
             'salles' => $salles,
@@ -111,10 +111,10 @@ class SalleController extends AbstractController
         return $this->redirectToRoute('salle_index');
     }
 
-    /**
-     * @Route("/salle/recherche", name="recherches")
-     */
-    public function Recherche(SalleRepository $repository, Request $request): Response
+//    /**
+//     * @Route("/salle/recherche", name="recherches")
+//     */
+/*    public function Recherche(SalleRepository $repository, Request $request): Response
     {
         $data=$request->get('searchs');
         $salles =$repository->findBy(['nom'=>$data]);
@@ -123,7 +123,7 @@ class SalleController extends AbstractController
             'salles' => $salles,
         ]);
     }
-
+*/
 
     /**
      * @param SalleRepository $repository

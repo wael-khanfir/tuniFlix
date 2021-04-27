@@ -8,16 +8,14 @@
     <div class="row">
     <div class="col-md-12">
 
-        <div style="margin-left: 550px;">
-            <form method="post" action="{{ path('recherche') }}">
+        <div style="margin-left: 670px;">
+
                 <label class=" text-primary"> Rechercher: </label>
-                <input type="text" name="search"><input class="btn" type="submit" value="Recherche">
-            </form>
+                <input id="myInput" type="text" name="search" placeholder="Search..">
+      </div>
 
 
-        </div>
-
-    <div style="margin-left: 720px;">
+    <div style="margin-left: 670px;">
         <form method="post" action="{{ path('triecinemadql') }}">
             <label class=" text-primary"> Trier par Email: </label>
            <input class="btn" type="submit" value="trier">
@@ -49,7 +47,8 @@
 
                         <th>Actions</th>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
+
                         {% for c in cinemas %}
                             <tr>
 

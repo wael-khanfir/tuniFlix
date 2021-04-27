@@ -20,6 +20,22 @@ class mapController extends AbstractController
         return $this->render('cinema/newMap.html.twig');
     }
 
+    /**
+     * @Route("/map2",name="street2")
+     */
+    public function mapAction2(): Response
+    {
+        return $this->render('cinema/newMap2.html.twig');
+    }
+
+    /**
+     * @Route("/map3",name="street3")
+     */
+    public function mapAction3(): Response
+    {
+        return $this->render('cinema/newMap3.html.twig');
+    }
+
 
 
 }

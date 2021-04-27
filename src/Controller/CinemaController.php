@@ -19,12 +19,13 @@ class CinemaController extends AbstractController
 {
     /**
      * @Route("/", name="cinema_index", methods={"GET"})
+     * @param $repository
+     * @return Response
      */
-    public function index(): Response
+    public function index(CinemaRepository $repository): Response
     {
-        $cinemas = $this->getDoctrine()
-            ->getRepository(Cinema::class)
-            ->findAll();
+        $cinemas=$repository->OrderByIdDQL();
+
 
         return $this->render('cinema/index.html.twig', [
             'cinemas' => $cinemas,
@@ -163,10 +164,10 @@ class CinemaController extends AbstractController
     }
 
 
-    /**
-     * @Route("/cinema/recherche", name="recherche")
-     */
-    public function Recherche(CinemaRepository $repository, Request $request): Response
+//    /**
+//     * @Route("/cinema/recherche", name="recherche")
+//     */
+/*    public function Recherche(CinemaRepository $repository, Request $request): Response
     {
         $data=$request->get('search');
         $cinemas =$repository->findBy(['nom'=>$data]);
@@ -175,6 +176,7 @@ class CinemaController extends AbstractController
             'cinemas' => $cinemas,
         ]);
     }
+*/
 
     /**
      * @param CinemaRepository $repository
