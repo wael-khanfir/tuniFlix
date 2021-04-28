@@ -1,0 +1,70 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Cinema front{% endblock %}
+
+{% block content %}
+
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+
+
+
+    <div class="inner-page">
+    <div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+        <div class="wpb_text_column wpb_content_element " >
+            <div class="wpb_wrapper">
+
+
+
+
+
+                <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                        <div class="vc_column-inner">
+                            <div class="wpb_wrapper">
+                                <div class="wpb_raw_code wpb_content_element wpb_raw_html" >
+                                    <div class="example-wrapper">
+                                        <h1 style="color: whitesmoke">Tuniflix QR-Code ✅</h1> <hr>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                {{ form_start(form) }}
+                                                {{ form_row(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Recherche'}}) }}
+                                                <hr>
+                                                <button type="submit" class="btn btn-success btn-block">Recherche</button>
+                                                {{ form_end(form) }}
+                                            </div>
+                                            <div class="col-md-6">
+                                                {% if qrCode %}
+                                                    <img src="{{ qrCode }}" alt="qr-code">
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+{% endblock %}

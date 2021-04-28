@@ -1,0 +1,72 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Cinema front{% endblock %}
+
+{% block content %}
+
+
+    <div class="box">
+        <div class="border-right">
+            <div class="border-left">
+                <div class="inner" >
+                    <h3>Welcome to <b>Cinema</b> <span>World</span></h3>
+                    <p style="margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;background: #F5F5F5; padding: 2px 6px; ">Tuniflix est une plateforme qui regroupe la production audiovisuelle en Tunisie (Film, Court métrage, Séries ..) et fournit un réseau social qui réunit les cinéphiles et les professionnels du métier (Producteurs, Réalisateurs, Acteurs, Techniciens .. </p>
+                    <div class="img-box1" ><img src="images/1page-img1.jpg" alt="" /> <div style="margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;background: #F5F5F5; padding: 2px 6px; ">Films, séries TV et bien plus en illimité.
+                        Où que vous soyez. Annulez à tout moment..</div></div>
+                    <p style="margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; padding: 2px 6px; "><a href="{{ path('cinemafront') }}">Home</a>, <a href="about-us.html">About us</a>, <a href="articles.html">Articles</a> (with Article page), <a href="{{ path('contact') }}">Contact us</a> , <a href="sitemap.html">Site Map</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="inner-page" >
+    <br>
+    <br>
+    <br>
+    <div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
+        <div class="wpb_text_column wpb_content_element " >
+            <div class="wpb_wrapper">
+
+
+
+
+
+                <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                        <div class="vc_column-inner">
+                            <div class="wpb_wrapper">
+                                <div class="wpb_raw_code wpb_content_element wpb_raw_html" >
+                                    <br> <br>
+                                    <h2><span>Votre Feedback,   ça nous concerne </span></h2>
+                                    <div id="slogan">
+
+                                        <div class="image png"></div>
+                                        <div class="inside">
+
+<h2 >{{form(contactForm) }}</h2>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+{% endblock %}
