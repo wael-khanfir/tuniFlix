@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Invite{% endblock %}
+
+{% block body %}
+    <h1>Create new Invite</h1>
+
+    {{ include('invite/_form.html.twig') }}
+
+    <a href="{{ path('invite_index') }}">back to list</a>
+{% endblock %}
