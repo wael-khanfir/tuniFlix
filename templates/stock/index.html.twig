@@ -87,9 +87,23 @@
                     <span class="navbar-toggler-icon icon-bar"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end">
-                    <form method="post"action="{{ path('recherche') }}">
-                          <label>Recherche</label>
-                            <input type="text" placeholder="Search..."> <input type="submit" value="Recherche">
+                    <form method="post" action="{{ path('rechercheMultiple') }}">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label><i class="fa fa-search"></i> Search </label>
+                                    <input class="form-control" type="text" name="recherche" placeholder="Any infos...">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label> </label>
+                                    <input type="submit" value="Search" class="btn-danger">
+
+                                </div>
+                            </div>
+                        </div>
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -183,6 +197,8 @@
     <a href="{{ path('stock_new') }}">Create new</a>
                             <a class="btn btn-primary" href="{{path('imprim')}}"> Imprimer </a>
                             <a class="btn btn-primary" href="{{path('stock/tri')}}">Tri par quantite</a>
+                            {{ knp_pagination_render(stocks) }}
+
                         </div>
 
                     </div>
@@ -193,5 +209,7 @@
 
         </div>
     </div> </div> </div> </div>
+
+
 
 {% endblock %}

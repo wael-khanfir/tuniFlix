@@ -47,4 +47,15 @@ class StockRepository extends ServiceEntityRepository
         ;
     }
     */
+    function SearchID($id,$quantite,$fournisseur){
+        return $this->createQueryBuilder('stock')
+            ->where('stock.id LIKE :id')
+            ->orWhere('stock.quantite LIKE :quantite')
+            ->orWhere('stock.fournisseur LIKE :fournisseur')
+            ->setParameter('id','%'.$id.'%')
+            ->setParameter('quantite','%'.$quantite.'%')
+            ->setParameter('fournisseur','%'.$fournisseur.'%')
+
+            ->getQuery()->getResult();
+    }
 }

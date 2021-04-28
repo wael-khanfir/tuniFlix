@@ -91,6 +91,12 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
+    "knplabs/knp-components": {
+        "version": "v3.0.2"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.4.2"
+    },
     "laminas/laminas-code": {
         "version": "4.2.0"
     },
@@ -99,6 +105,9 @@
     },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.2.0"
+    },
+    "mercuryseries/flashy-bundle": {
+        "version": "v3.0.2"
     },
     "monolog/monolog": {
         "version": "1.26.0"

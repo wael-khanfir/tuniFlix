@@ -8,13 +8,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\StockRepository;
+use App\Repository\ProduitRepository;
 
 /**
- * Produit
- *
- * @ORM\Table(name="produit")
- * @ORM\Entity
+/**
+ * @ORM\Entity(repositoryClass=ProduitRepository::class)
  */
+
 class Produit
 {
     /**
@@ -52,7 +52,7 @@ class Produit
     /**
      * @var int
      *
-     * @ORM\Column(name="prix", type="integer", nullable=false)
+     * @ORM\Column(name="prix", type="integer", nullable=true)
      */
     private $prix;
 
@@ -161,9 +161,10 @@ class Produit
     /**
      * @param int $prix
      */
-    public function setPrix(int $prix): void
+    public function setPrix(int $prix): self
     {
         $this->prix = $prix;
+        return $this;
     }
 
     /**
