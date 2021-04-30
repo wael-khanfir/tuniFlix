@@ -27,7 +27,7 @@ class CartController extends AbstractController
             } else {
                 if ($verifuser->getType() == "admin") {
                     $session->set("user", $verifuser);
-                    return $this->redirectToRoute("users_index");
+                    return $this->redirectToRoute("produit_index");
 
 
                 } else {
