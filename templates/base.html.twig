@@ -42,53 +42,76 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./user.html">
+                    <a class="nav-link" href="{{ path('users_index') }}">
                         <i class="material-icons">person</i>
-                        <p>User Profile</p>
+                        <p>Gestions Des Utilisateurs </p>
                     </a>
                 </li>
-                <li class="nav-item active ">
+                <li class="nav-item ">
                     <a class="nav-link" href="{{ path('cinema_index') }}">
                         <i class="material-icons">content_paste</i>
                         <p>Gestion des cinemas</p>
                     </a>
                 </li>
-                <li class="nav-item active" >
+                <li class="nav-item " >
                     <a class="nav-link" href="{{ path('salle_index') }}">
                         <i class="material-icons">library_books</i>
                         <p>Gestion des salles</p>
                     </a>
                 </li>
+                <li class="nav-item  ">
+                    <a class="nav-link" href="{{ path('produit_index') }}">
+                        <i class="material-icons">content_paste</i>
+                        <p>Gestion des Produits</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('stock_index') }}">
+                        <i class="material-icons">content_paste</i>
+                        <p>Gestion des Stocks</p>
+                    </a>
+                </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./icons.html">
+                    <a class="nav-link" href="{{ path('article_index') }}">
                         <i class="material-icons">bubble_chart</i>
-                        <p>Icons</p>
+                        <p>Gestion des Articles</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./map.html">
+                    <a class="nav-link" href="{{ path('projection_index') }}">
                         <i class="material-icons">location_ons</i>
-                        <p>Maps</p>
+                        <p>Gestion Des Projections</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./notifications.html">
+                    <a class="nav-link" href="{{ path('invite_index') }}">
                         <i class="material-icons">notifications</i>
-                        <p>Notifications</p>
+                        <p>Gestion Des Invites</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./rtl.html">
+                    <a class="nav-link" href="{{ path('reservation_index') }}">
                         <i class="material-icons">language</i>
-                        <p>RTL Support</p>
+                        <p>Gestion Des Reservations</p>
                     </a>
                 </li>
-                <li class="nav-item active-pro ">
-                    <a class="nav-link" href="./upgrade.html">
-                        <i class="material-icons">unarchive</i>
-                        <p>Upgrade to PRO</p>
+
+
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{  path('promotion_index') }}">
+                        <i class="material-icons">language</i>
+                        <p>Gestion Des Promotions</p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{  path('workshop_index') }}">
+                        <i class="material-icons">language</i>
+                        <p>Gestion Des Evenements</p>
+                    </a>
+                </li>
+
+
             </ul>
         </div>
     </div>
@@ -105,15 +128,7 @@
                     <span class="navbar-toggler-icon icon-bar"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end">
-                    <form class="navbar-form">
-                        <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Search...">
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
-                                <div class="ripple-container"></div>
-                            </button>
-                        </div>
-                    </form>
+
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="javascript:;">
@@ -160,68 +175,6 @@
         {% endblock %}
 
         {% block content %}
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header card-header-primary">
-                                <h4 class="card-title ">Table Cinema</h4>
-                                <p class="card-category"> Les cinemas:</p>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class=" text-primary">
-                                        <th>
-                                            ID
-                                        </th>
-                                        <th>
-                                            Nom
-                                        </th>
-                                        <th>
-                                            DateCreation
-                                        </th>
-                                        <th>
-                                            Adresse
-                                        </th>
-                                        <th>
-                                            Email
-                                        </th>
-
-                                        <th>Actions</th>
-                                        </thead>
-                                        <tbody>
-                                        {% for cinema in cinemas %}
-                                            <tr>
-                                                <td>{{ cinema.id }}</td>
-                                                <td>{{ cinema.nom }}</td>
-                                                <td>{{ cinema.dateCreation ? cinema.dateCreation|date('Y-m-d') : '' }}</td>
-                                                <td>{{ cinema.adresse }}</td>
-                                                <td>{{ cinema.email }}</td>
-                                                <td>
-
-                                                    <form method="post" action="{{ path('cinema_delete', {'id': cinema.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cinema.id) }}">
-                                                        <button class="btn">Delete</button>
-                                                    </form>
-                                                    <a href="{{ path('cinema_edit', {'id': cinema.id}) }}">edit</a>
-
-                                                </td>
-                                            </tr>
-                                        {% else %}
-                                            <tr>
-                                                <td colspan="6">no records found</td>
-                                            </tr>
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-
-                                    <a href="{{ path('cinema_new') }}">Create new</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
 
 
@@ -265,6 +218,7 @@
                         </footer>
 
                     {% endblock %}
+
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                     <script>
                         $(document).ready(function(){
@@ -276,6 +230,7 @@
                             });
                         });
                     </script>
+
                     <!-- Flashy depends on jQuery -->
                     <script src="//code.jquery.com/jquery.js"></script>
                     <!-- Load Flashy default JavaScript -->

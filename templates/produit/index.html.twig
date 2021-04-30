@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+
+    {% block content %}
+
+        <tbody>
+        <div class="content">
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="margin-left: 670px;">
+                      <label class=" text-primary"> Rechercher: </label>
+                    <input id="myInput" type="text" name="search" placeholder="Search..">
+                </div>
+
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Table produit</h4>
+                        <p class="card-category"> Les produits:</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>Nom</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Prix</th>
+                                <th>Datefin</th>
+                                <th>Actions</th>
+
+                                </thead>
+                                <tbody id="myTable">
+                                {% for produit in produits %}
+                                    <tr>
+                                        <td>{{ produit.nom }}</td>
+                                        <td>{{ produit.description }}</td>
+                                        <td ><img src ="{{ asset('uploads/images/'~produit.getImage) }}" height="130px" width="150px">  </td>
+                                        <td>{{ produit.prix }}</td>
+                                        <td>{{ produit.datefin ? produit.datefin|date('Y-m-d') : '' }}</td>
+                                        <td>
+
+                                            <form method="post" action="{{ path('produit_delete', {'id': produit.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
+                                                <button class="btn">Delete</button>
+                                            </form>
+                                            <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
+                                            <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="4">no records found</td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('produit_new') }}">Create new</a>
+                            {{ knp_pagination_render(produits) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}

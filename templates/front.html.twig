@@ -37,13 +37,20 @@
                 <li><a href="{{ path('default') }}"><img src="{{ asset('images/icon3.gif') }}" alt="" /></a></li>
             </ul>
         </div>
-        <div class="row-2">
+        <div class="row-2" >
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="{{ path('cinemafront') }}">Cinema</a></li>
-                <li><a href="articles.html">Articles</a></li>
-                <li><a href="{{ path('contact') }}">Contactez nous</a></li>
-                <li class="last"><a href="sitemap.html">Sitemap</a></li>
+                <li><a href="{{ path('home_index') }}" style="width:100%">Home</a></li>
+                <li><a href="{{ path('cinemafront') }}" style="width:100%">Cinema</a></li>
+                <li><a href="{{ path('frontarticle') }}" style="width:100%">Articles</a></li>
+                <li><a href="{{ path('frontt') }}" style="width:100%">Projections</a></li>
+                <li><a href="{{ path('produitfront') }}" style="width:100%">Produits</a></li>
+                <li><a href="{{ path('reservation_new1') }}"  style="width:100%">Reservations</a></li>
+
+                <li><a href="{{ path('front') }}" style="width:100%">Evenements</a></li>
+
+                <li><a href="{{ path('aa') }}" style="width:100%">Nos Invites</a></li>
+                <li><a href="{{ path('users_connection') }}" style="width:100%">Login</a></li>
+                <li><a href="{{ path('users_new') }}" style="width:100%">Sign UP</a></li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}Produit{% endblock %}
+
+ {% block content %}
+     <div class="content">
+         <div class="container-fluid">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="card">
+                         <div class="card-header card-header-primary">
+                             <h4 class="card-title ">affichage produit</h4>
+                         </div>
+                         <div class="card-body">
+                             <div class="table-responsive">
+
+                                 <tbody class=" text-primary">
+                                 <table class="table">
+                                     <tbody>
+                                     <tr>
+                                         <th>Nom</th>
+                                         <td>{{ produit.nom }}</td>
+                                     </tr>
+                                     <tr>
+                                         <th>Description</th>
+                                         <td>{{ produit.description }}</td>
+                                     </tr>
+                                     <tr>
+                                         <th>Image</th>
+                                         <td ><img src ="{{ asset('uploads/images/'~produit.getImage) }}" height="130px" width="150px">  </td>
+
+                                     </tr>
+                                     <tr>
+                                         <th>Prix</th>
+                                         <td>{{ produit.prix }}</td>
+                                     </tr>
+                                     <tr>
+                                         <th>Datefin</th>
+                                         <td>{{ produit.datefin ? produit.datefin|date('Y-m-d') : '' }}</td>
+                                     </tr>
+
+                                     </tbody>
+                                 </table>
+
+                                 <a href="{{ path('produit_index') }}">back to list</a>
+
+                                 <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+
+                                 {{ include('produit/_delete_form.html.twig') }}
+
+                                 </tbody>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div></div></div></div></div>
+
+{% endblock %}

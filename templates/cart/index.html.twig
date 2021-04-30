@@ -1,0 +1,56 @@
+{% extends 'front.html.twig' %}
+{% block stylesheets %}
+    {% endblock %}
+{% block title %}Welcome! {% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"/>
+
+    <div class="bg-light p-3" >
+        <h1>Votre panier</h1>
+    </div>
+    {% if items | length > 0 %}
+        <table class="table" style="color: whitesmoke">
+            <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.produit.nom }}</td>
+                <td>{{ item.produit.prix }}</td>
+                <td>{{item.quantity  }}</td>
+                <td>{{item.produit.prix * item.quantity  }}</td>
+                <td>
+                    <a href="{{ path('cart_remove',{'id':item.produit.id}) }}" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i>
+                    </a>
+
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total :</td>
+                <td>{{ total }}</td>
+            </tr>
+            </tfoot>
+        </table>
+    {% else %}
+
+    <p>Surprise, c'est vide !</p>
+    {% endif %}
+
+    <a href="{{ path('produitfront') }}">back to list</a>
+
+{% endblock %}

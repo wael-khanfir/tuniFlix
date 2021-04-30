@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Stock index{% endblock %}
+
+
+    {% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="margin-left: 670px;">
+
+                    <label class=" text-primary"> Rechercher: </label>
+                    <input id="myInput" type="text" name="search" placeholder="Search..">
+                </div>
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Table Stock</h4>
+                        <p class="card-category"> Les stocks:</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                <th>NomProduit</th>
+                <th>Quantite</th>
+                <th>Fournisseur</th>
+                <th>actions</th>
+        </thead>
+        <tbody id="myTable">
+        {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.produit.nom }}</td>
+                <td>{{ stock.quantite }}</td>
+                <td>{{ stock.fournisseur }}</td>
+                <td>
+                    <a href="{{ path('stock_show', {'id': stock.id}) }}">show</a>
+                    <a href="{{ path('stock_edit', {'id': stock.id}) }}">edit</a>
+                    <form method="post" action="{{ path('stock_delete', {'id': stock.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ stock.id) }}">
+                        <button class="btn">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('stock_new') }}">Create new</a>
+                            <a class="btn btn-primary" href="{{path('imprim')}}"> Imprimer </a>
+                            <a class="btn btn-primary" href="{{path('stock/tri')}}">Tri par quantite</a>
+                            {{ knp_pagination_render(stocks) }}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div> </div>
+
+
+
+{% endblock %}

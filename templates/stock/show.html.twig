@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}Stock{% endblock %}
+
+    {% block content %}
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title ">affichage Stock</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+
+                                    <tbody class=" text-primary">
+                                    <table class="table">
+                                        <tbody>
+
+                                        <tr>
+                                            <th>Quantite</th>
+                                            <td>{{ stock.quantite }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Fournisseur</th>
+                                            <td>{{ stock.fournisseur }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <a href="{{ path('stock_index') }}">back to list</a>
+
+                                    <a href="{{ path('stock_edit', {'id': stock.id}) }}">edit</a>
+
+                                    {{ include('stock/_delete_form.html.twig') }}
+
+                                    </tbody>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div></div></div>
+{% endblock %}

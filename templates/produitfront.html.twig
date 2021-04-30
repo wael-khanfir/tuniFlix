@@ -1,0 +1,45 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Produit front{% endblock %}
+
+            {% block content%}
+                <div id="content">
+
+                    <div class="box">
+                        <div class="border-right">
+                            <div class="border-left">
+                                <div class="inner" >
+                                    <h3>Welcome to <b>Cinema</b> <span>World</span></h3>
+                                    <p style="margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;background: #F5F5F5; padding: 2px 6px; ">Tuniflix est une plateforme qui regroupe la production audiovisuelle en Tunisie (Film, Court métrage, Séries ..) et fournit un réseau social qui réunit les cinéphiles et les professionnels du métier (Producteurs, Réalisateurs, Acteurs, Techniciens .. </p>
+                                    <div class="img-box1" ><img src="images/1page-img1.jpg" alt="" /> <div style="margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;background: #F5F5F5; padding: 2px 6px; ">Films, séries TV et bien plus en illimité.
+                                            Où que vous soyez. Annulez à tout moment..</div></div>
+                                    <p style="margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; padding: 2px 6px; "><a href="{{ path('cinemafront') }}">Home</a>, <a href="about-us.html">About us</a>, <a href="articles.html">Articles</a> (with Article page), <a href="{{ path('contact') }}">Contact us</a> , <a href="sitemap.html">Site Map</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>Les <span>Produits Du Buvette</span></h3>
+                        <ul class="movies">
+                            <li>
+                                {% for produit in produits %}
+                                <h4>{{ produit.nom }}</h4><img src="{{ asset('uploads/images/'~produit.getImage) }}"
+                                                               alt="" style="width: 150px ; height:150px">
+
+
+                                <div class="wrapper"><a href="#" class="link2"><span><span>Prix:{{ produit.prix }}</span><span>Date_fin:{{ produit.datefin ? produit.datefin|date('Y-m-d') : '' }}</span></span></a></div>
+
+                            </li>
+
+
+                            <li class="clear">&nbsp;</li>
+                            <a href="{{path('cart_add', {'id': produit.id})  }}" class="btn btn-success float-right">
+                                <i class="fas fa-shopping-cart mr-1"></i>
+                                Ajouter
+                            </a>
+                            {% endfor %}
+                        </ul>
+                        {{ knp_pagination_render(produits) }}
+                    </div>
+                </div>
+            {% endblock %}
