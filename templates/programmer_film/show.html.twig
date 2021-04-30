@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProgrammerFilm{% endblock %}
+
+{% block body %}
+    <h1>ProgrammerFilm</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ programmer_film.id }}</td>
+            </tr>
+            <tr>
+                <th>Date_projection</th>
+                <td>{{ programmer_film.dateProjection ? programmer_film.dateProjection|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Langue</th>
+                <td>{{ programmer_film.langue }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('programmer_film_index') }}">back to list</a>
+
+    <a href="{{ path('programmer_film_edit', {'id': programmer_film.id}) }}">edit</a>
+
+    {{ include('programmer_film/_delete_form.html.twig') }}
+{% endblock %}

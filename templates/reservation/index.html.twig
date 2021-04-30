@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+
+
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Table Reservation</h4>
+                        <p class="card-category"> Les reservations:</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>AppointedNum</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+
+                <td>{{ reservation.firstName }}</td>
+                <td>{{ reservation.lastName }}</td>
+                <td>{{ reservation.email }}</td>
+                <td>{{ reservation.appointedNum }}</td>
+                <td>
+                    <a href="{{ path('reservation_show', {'id': reservation.id}) }}">show</a>
+                    <a href="{{ path('reservation_edit', {'id': reservation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <a href="{{ path('reservation_new') }}">Create new</a>
+    {{ knp_pagination_render(reservations) }}
+{% endblock %}

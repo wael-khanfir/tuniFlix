@@ -1,0 +1,11 @@
+
+
+{% block title %}New Projection{% endblock %}
+
+{% block body %}
+    <h1>Create new Projection</h1>
+
+    {{ include('projection/_form.html.twig') }}
+
+    <a href="{{ path('projection_index') }}">back to list</a>
+{% endblock %}

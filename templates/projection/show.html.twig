@@ -1,0 +1,42 @@
+{% extends 'base_projection.html.twig' %}
+
+{% block title %}Projection{% endblock %}
+
+{% block body %}
+    <h1>Projection</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ projection.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ projection.nom }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ projection.genre }}</td>
+            </tr>
+            <tr>
+                <th>AgeRecommande</th>
+                <td>{{ projection.ageRecommande }}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{{ projection.duree }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ projection.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('projection_index') }}">back to list</a>
+
+    <a href="{{ path('projection_edit', {'id': projection.id}) }}">edit</a>
+
+    {{ include('projection/_delete_form.html.twig') }}
+{% endblock %}

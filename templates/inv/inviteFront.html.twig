@@ -1,0 +1,27 @@
+{% extends 'inv/fronttemplate.html.twig' %}
+{% block body %}
+
+
+    <div class="content">
+
+        <ul class="list">
+            {% for invite in invites %}
+            <li>
+                <img style="height:200px;width:200px"src ="{{asset('invite/') ~ invite.image  }}" alt="">
+
+
+                <a>{{ invite.firstName }}</a><br>
+                <a>{{ invite.lastName }}</a><br>
+                <a>{{ invite.email }}</a><br>
+                <a>{{ invite.career }}</a><br>
+                <a>{{ invite.interviewType }}</a><br>
+                <a>{{ invite.interviewDate ? invite.interviewDate|date('Y-m-d') : '' }}</a><br>
+                <a>{{ invite.appointedNum }}</a><br>
+            </li>
+
+    {% endfor %}
+
+        </ul>
+    </div>
+
+{%  endblock %}

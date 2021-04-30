@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us - About Us | Cinema - Free Website Template from Templates.com</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Place your description here" />
+    <meta name="keywords" content="put, your, keyword, here" />
+    <meta name="author" content="Templates.com - website templates provider" />
+
+    <link href="{{ asset('style.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ asset('js/jquery-1.4.2.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/cufon-yui.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/cufon-replace.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/Gill_Sans_400.font.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
+    <!--[if lt IE 7]>
+        <script type="text/javascript" src="{{ asset('js/ie_png.js') }}"></script>
+        <script type="text/javascript">
+            ie_png.fix('.png, .link1 span, .link1');
+        </script>
+        <link href="{{ asset('ie6.css') }}" rel="stylesheet" type="text/css" />
+        <![endif]-->
+</head>
+<body>
+{% block header%}
+<div class="tail-top">
+    <div class="tail-bottom">
+        <div id="main">
+            <!-- HEADER -->
+
+            <div id="header">
+                <div class="row-1">
+                    <div class="fleft"><a href="index.html">Cinema <span>World</span></a></div>
+                    <ul>
+                        <li><a href="{{ path('cinemafront') }}"><img src="{{ asset('images/icon1.gif') }}" alt="" /></a></li>
+                        <li><a href="{{ path('contact') }}"><img src="{{ asset('images/icon2.gif') }}" alt="" /></a></li>
+                        <li><a href="{{ path('default') }}"><img src="{{ asset('images/icon3.gif') }}" alt="" /></a></li>
+                    </ul>
+                </div>
+                <div class="row-2" >
+                    <ul>
+                        <li><a href="{{ path('home_index') }}" style="width:100%">Home</a></li>
+                        <li><a href="{{ path('cinemafront') }}" style="width:100%">Cinema</a></li>
+                        <li><a href="{{ path('frontarticle') }}" style="width:100%">Articles</a></li>
+                        <li><a href="{{ path('frontt') }}" style="width:100%">Projections</a></li>
+                        <li><a href="{{ path('produitfront') }}" style="width:100%">Produit</a></li>
+                        <li><a href="{{ path('reservation_new1') }}"  style="width:100%">Reservations</a></li>
+
+                        <li><a href="{{ path('front') }}" style="width:100%">Evenements</a></li>
+
+                        <li><a href="{{ path('aa') }}" style="width:100%">Nos Invites</a></li>
+                        <li><a href="{{ path('users_connection') }}" style="width:100%">Login</a></li>
+                        <li><a href="{{ path('users_new') }}" style="width:100%">Sign UP</a></li>
+                    </ul>
+                </div>
+            </div>
+            {% endblock %}
+
+            {% block content %}
+    <div id="content">
+        <div class="line-hor"></div>
+        <div class="box">
+            <div class="border-right">
+                <div class="border-left">
+                    <div class="inner">
+                        <h3>Nos Articles <span>Recents</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+
+            {% for article in articles %} <ul class="list">
+                <li><img src="{{ asset('uploads/images/' ~ article.img) }}"
+                         alt="" style=" "><a>{{ article.titre }} </a><br />
+                    {{ article.description }}
+
+                    </li>
+
+            </ul>
+            {% endfor%}
+        </div>
+
+    </div>
+{% endblock %}
+{% block footer %}
+            <div id="footer">
+                <div class="left">
+                    <div class="right">
+                        <div class="inside">Copyright - Type in your name here<br />
+                            Website template designed by <a class="new_window" href="http://store.templatemonster.com/?aff=netsib1" target="_blank" rel="nofollow">www.templatemonster.com</a><br />
+                            3D Models provided by <a class="new_window" href="http://www.templates.com/product/3d-models/" target="_blank" rel="nofollow">www.templates.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+</body>
+</html>
+{% endblock %}

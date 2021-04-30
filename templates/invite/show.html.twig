@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Invite{% endblock %}
+
+{% block content %}
+    <h1>Invite</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>FirstName</th>
+                <td>{{ invite.firstName }}</td>
+            </tr>
+            <tr>
+                <th>LastName</th>
+                <td>{{ invite.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ invite.email }}</td>
+            </tr>
+            <tr>
+                <th>Career</th>
+                <td>{{ invite.career }}</td>
+            </tr>
+            <tr>
+                <th>InterviewType</th>
+                <td>{{ invite.interviewType }}</td>
+            </tr>
+            <tr>
+                <th>InterviewDate</th>
+                <td>{{ invite.interviewDate ? invite.interviewDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>AppointedNum</th>
+                <td>{{ invite.appointedNum }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('invite_index') }}">back to list</a>
+
+    <a href="{{ path('invite_edit', {'id': invite.id}) }}">edit</a>
+
+    {{ include('invite/_delete_form.html.twig') }}
+{% endblock %}

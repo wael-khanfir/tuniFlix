@@ -1,0 +1,63 @@
+<style>
+    body {
+        margin: 0;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serifsans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        background-color: #fafafa;
+    }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    thead {
+        display: table-header-group;
+    }
+</style>
+<img src="data:image/png;base64,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">
+{% block body %}
+
+    <h1>Liste des programmes</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date_projection</th>
+            <th>Langue</th>
+            <th>Projection</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for programmer_film in programmer_films %}
+            <tr>
+                <td>{{ programmer_film.id }}</td>
+                <td>{{ programmer_film.dateProjection ? programmer_film.dateProjection|date('Y-m-d H:i') : '' }}</td>
+                <td>{{ programmer_film.langue }}</td>
+                <td>{{ programmer_film.projection.nom}}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </body>
+
+{% endblock %}
