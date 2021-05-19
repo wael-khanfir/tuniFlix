@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * Cinema
@@ -37,6 +39,7 @@ class Cinema
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -44,6 +47,7 @@ class Cinema
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $nom;
 
@@ -51,6 +55,7 @@ class Cinema
      * @var \DateTime
      *
      * @ORM\Column(name="date_creation", type="date", nullable=false)
+     * @Groups("post:read")
      */
     private $dateCreation;
 
@@ -58,6 +63,7 @@ class Cinema
      * @var string
      *
      * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $adresse;
 
@@ -66,6 +72,7 @@ class Cinema
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
      * @Assert\Email
+     * @Groups("post:read")
      */
     private $email;
 
