@@ -19,17 +19,19 @@ class Produit
 {
     /**
      * @var int
-     *
+     ** @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("produit")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
-     * @Assert\NotBlank(message="Merci d'indiquer le nom du produit")
      * @ORM\Column(type="string", length=255)
-     * @Groups("depense:read")
+     * @Groups("produit")
+     * @Groups("post:read")
      */
     private $nom;
 
@@ -37,6 +39,8 @@ class Produit
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     * * @Groups("produit")
+     * @Groups("post:read")
      */
     private $description;
 
@@ -45,7 +49,8 @@ class Produit
      * @Assert\NotBlank(message="Add jpg image")
      * @Assert\File(mimeTypes={ "image/jpeg" ,"image/png","image/jpg"})
      * @ORM\Column(type="string", length=255, nullable=false)
-     * @Groups("depense:read")
+     * @Groups("produit")
+     * @Groups("post:read")
      */
     private $image;
 
@@ -53,6 +58,8 @@ class Produit
      * @var int
      *
      * @ORM\Column(name="prix", type="integer", nullable=true)
+     * @Groups("produit")
+     * @Groups("post:read")
      */
     private $prix;
 
@@ -60,18 +67,23 @@ class Produit
      * @var \DateTime|null
      *
      * @ORM\Column(name="datefin", type="date", nullable=true)
+     * @Groups("produit")
+     * @Groups("post:read")
      */
     private $datefin;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="img", type="string", length=255, nullable=true)
+     * @ORM\Column(name="img", type="string", length=255, nullable=false)
+     * @Groups("produit")
+     * @Groups("post:read")
      */
     private $img;
 
     /**
      * @ORM\OneToMany(targetEntity=Stock::class, mappedBy="produit",cascade={"all"},orphanRemoval=true)
+
      */
     private $stock;
 
@@ -79,8 +91,6 @@ class Produit
     {
         $this->stock = new ArrayCollection();
     }
-
-
 
 
 
@@ -230,8 +240,6 @@ class Produit
 
         return $this;
     }
-
-
 
 
 

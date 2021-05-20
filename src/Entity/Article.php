@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Article
@@ -19,6 +20,7 @@ class Article
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("article")
      */
     private $id;
 
@@ -27,6 +29,7 @@ class Article
      *
      * @ORM\Column(name="titre", type="string", length=255, nullable=false)
      * @Assert\Length(min="2",max="20",minMessage="champ invalide")
+     * @Groups("article")
      */
     private $titre;
 
@@ -34,6 +37,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     * @Groups("article")
 
      */
     private $description;
@@ -42,12 +46,14 @@ class Article
      * @var string
      *
      * @ORM\Column(name="img", type="string", length=255, nullable=false)
+     * @Groups("article")
 
      */
     private $img;
 
     /**
      * @return int
+
      */
     public function getId(): int
     {

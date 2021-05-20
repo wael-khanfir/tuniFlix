@@ -1,0 +1,45 @@
+{% block body %}
+    <div class="col-lg-6 col-md-8">
+    <h1 align ="center">Liste des produits</h1><hr>
+
+    <div class="ripple-container"></div>
+    <div class="tab-content tab-space">
+    <div class="tab-pane" id="pill1" style="margin-bottom: 25px; width: 1000px; height: 700px;  margin-left: 30px;">
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="td-name">
+
+    </div>
+    <table class="table"  class="table-responsive" id="tableac" width="500" >
+        <thead >
+        <tr class="text-center"  bgcolor="#add8e6"  >
+
+            <th class="wd-15p">Nom</th>
+            <th class="wd-20p">Description</th>
+            <th class="wd-15p">Prix</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr  {% for produit in produits %}>
+
+            <td>{{produit.nom}}</td>
+            <td>{{produit.description}}</td>
+            <td>{{ produit.prix }}</td>
+
+
+
+
+        </tr >
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

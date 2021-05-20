@@ -5,12 +5,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Projection
  *
  * @ORM\Table(name="projection")
  * @ORM\Entity
+
  */
 class Projection
 {
@@ -20,6 +22,7 @@ class Projection
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -27,6 +30,7 @@ class Projection
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $nom;
 
@@ -34,6 +38,7 @@ class Projection
      * @var string
      *
      * @ORM\Column(name="genre", type="string", length=255, nullable=false)
+     * @Groups("post:read")
      */
     private $genre;
 
@@ -41,6 +46,7 @@ class Projection
      * @var int
      *
      * @ORM\Column(name="age_recommande", type="integer", nullable=false)
+     * @Groups("post:read")
      */
     private $ageRecommande;
 
@@ -48,6 +54,7 @@ class Projection
      * @var string
      *
      * @ORM\Column(name="duree", type="string", length=44, nullable=false)
+     * @Groups("post:read")
      */
     private $duree;
 
@@ -55,11 +62,13 @@ class Projection
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=10000, nullable=false)
+     * @Groups("post:read")
      */
     private $image;
 
     /**
      * @ORM\OneToMany(targetEntity=ProgrammerFilm::class, mappedBy="projection",cascade={"all"},orphanRemoval=true)
+
      */
     private $programmerFilms;
 
@@ -71,6 +80,7 @@ class Projection
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=44, nullable=false)
+     * @Groups("post:read")
      */
     private $description;
 
