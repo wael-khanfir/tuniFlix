@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Entity\Projection;
 use App\Entity\Article;
 use App\Form\ArticleType;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,13 +18,13 @@ class ArticleController extends AbstractController
     /**
      * @Route("/", name="article_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(FlashyNotifier $flashy): Response
     {
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)
             ->findAll();
 
-        return $this->render('base.html.twig', [
+        return $this->render('base_article.html.twig', [
             'articles' => $articles,
         ]);
     }
@@ -31,7 +32,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("/new", name="article_add", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,FlashyNotifier $flashy): Response
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
@@ -50,6 +51,7 @@ class ArticleController extends AbstractController
             $article->setImg($fileName);
             $entityManager->persist($article);
             $entityManager->flush();
+            $flashy->success('Article created!');
 
             return $this->redirectToRoute('article_index');
         }

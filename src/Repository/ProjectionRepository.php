@@ -23,11 +23,13 @@ class ProjectionRepository extends ServiceEntityRepository
         $query=$em->createQuery('select s from App\Entity\Projection s order by s.id DESC ');
         return $query->getResult();
     }
-    public function recherche(String $id)
+    public function findProjectionByid($x)
     {
-        $em=$this->getEntityManager();
-        $query=$em->createQuery('select s from App\Entity\ProgrammerFilm s  JOIN s.projection c where c.id=:id')
-            ->setParameter('id',$id);
-        return $query->getResult();
+        return $this->createQueryBuilder('projection')
+            ->where('projection.id LIKE :id  ')
+            ->setParameter('id', '%' . $x . '%')
+            ->getQuery()
+            ->getResult();
     }
+
 }

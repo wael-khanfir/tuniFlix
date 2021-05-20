@@ -6,11 +6,17 @@ use App\Entity\Projection;
 use App\Form\ProjectionType;
 use App\Repository\ProgrammerFilmRepository;
 use App\Repository\ProjectionRepository;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * @Route("/projection")
@@ -34,7 +40,7 @@ class ProjectionController extends AbstractController
     /**
      * @Route("/new", name="projection_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,FlashyNotifier $flashy): Response
     {
         $projection = new Projection();
         $form = $this->createForm(ProjectionType::class, $projection);
@@ -53,6 +59,7 @@ class ProjectionController extends AbstractController
             $projection->setImage($fileName);
             $entityManager->persist($projection);
             $entityManager->flush();
+            $flashy->success('Projection created!');
 
             return $this->redirectToRoute('projection_index');
         }
@@ -128,4 +135,40 @@ class ProjectionController extends AbstractController
      'programmer_films'=>$programme,'projection'=>$projection
  ]);
   }
+
+    /**
+     * @Route("/searchevenement ", name="searchevenement")
+     */
+    public function searchEvenement(Request $request, ProjectionRepository $repository, NormalizerInterface $Normalizer)
+    {
+
+        $requestString = $request->get('searchValue');
+        if(strlen($requestString)==0)
+        {
+            $projection = $repository->findAll();
+        }
+        else
+        {
+            $projection = $repository->findProjectionByid($requestString);
+        }
+
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($projection, 'json',[
+            'ignored_attributes' => ['nom'],
+            'circular_reference_handler' => function ($object) {
+                return $object->getId();
+            }
+        ]);
+
+
+        $response = new Response(json_encode($jsonContent));
+        $response->headers->set('Content-Type', 'application/json; charset=utf-8');
+
+        return $response;
+
+    }
+
 }

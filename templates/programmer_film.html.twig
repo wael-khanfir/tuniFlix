@@ -16,6 +16,7 @@
     <link href="{{ asset('css/material-dashboard.css?v=2.1.2')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('demo/demo.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
 </head>
 <body>
 {% block header %}
@@ -308,6 +309,10 @@
                     <script src="{{asset('js/material-dashboard.js?v=2.1.2')}}" type="text/javascript"></script>
                     <!-- Material Dashboard DEMO methods, don't include it in your project! -->
                     <script src="{{asset('/demo/demo.js') }}"></script>
+                    <script src="//code.jquery.com/jquery.js"></script>
+                    <!-- Load Flashy default JavaScript -->
+                    <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+                    {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
                     <script>
                         </body>
                         </html>
